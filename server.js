@@ -11,9 +11,18 @@ const io = require("socket.io")(server, {
 
 // open a connection using socket
 io.on("connection", (socket) => {
-	socket.on("addNewFloor", (args) => {
+	socket.on("addNewFloor", () => {
 		// server emits to all end users who are connected
 		io.emit("addNewFloor");
+	});
+	socket.on("addNewLift", () => {
+		io.emit("addNewLift");
+	});
+	socket.on("moveLiftUp", (args) => {
+		io.emit("moveLiftUp", args);
+	});
+	socket.on("moveLiftDown", (args) => {
+		io.emit("moveLiftDown", args);
 	});
 });
 
