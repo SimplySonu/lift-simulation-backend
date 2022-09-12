@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
 	res.send("<p>Lift Simulation Backend!</p>");
 });
 
-server.listen(5000, () => {
+server.listen(process.env.PORT || 5000, () => {
 	console.log("Lift Simulation backend starting...");
 });
